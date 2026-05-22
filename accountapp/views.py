@@ -11,7 +11,7 @@ from django.contrib.auth import logout as auth_logout
 # LOGIN VIEW
 def login(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('Home')
 
     if request.method == 'POST':
         username_val = request.POST.get('username')
@@ -32,9 +32,9 @@ def login(request):
             return redirect('youthclub')
         else:
             messages.error(request, "Invalid credentials.")
-            return render(request, 'Login.html')
+            return render(request, 'login.html')
             
-    return render(request, 'Login.html')
+    return render(request, 'login.html')
 
 
 # SIGNUP VIEW (Renamed to match your layout perfectly)
