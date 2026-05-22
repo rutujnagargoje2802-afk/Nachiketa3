@@ -77,16 +77,24 @@
 
 /* BUTTONS */
 .btn {
-    display: inline-block; /* Allows the button to accept layout spacing and flexbox settings */
-    width: 100%;           /* Makes buttons uniform width on mobile screens */
-    max-width: 280px;      /* Prevents buttons from stretching too wide on tablet/desktop views */
-    text-align: center;    /* Keeps text perfectly centered inside the button boundary */
+    display: inline-block; 
+    width: 100%;           
+    max-width: 280px;      
+    text-align: center;    
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     transition: 0.3s;
-    box-sizing: border-box; /* Ensures padding stays contained inside the button width limits */
+    box-sizing: border-box; 
+    
+    /* FALLBACK MOBILE SPACING: Forces a gap regardless of the container setup */
+    margin-bottom: 15px; 
+}
+
+/* Remove margin from the final item to avoid extra blank space at the bottom */
+.btn:last-child {
+    margin-bottom: 0;
 }
 
 .primary {
@@ -115,6 +123,18 @@
 .outline:hover {
     background: white;
     color: #000000;
+}
+
+/* DESKTOP RESET: If screens are wide, remove the bottom margins */
+@media (min-width: 768px) {
+    .btn {
+        margin-bottom: 0;
+        margin-right: 15px; /* Adds space side-by-side instead */
+        width: auto;        /* Allows buttons to shrink back to normal text width */
+    }
+    .btn:last-child {
+        margin-right: 0;
+    }
 }
 
 /* =========================
