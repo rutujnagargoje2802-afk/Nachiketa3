@@ -31,7 +31,6 @@ urlpatterns = [
     path('community/', include('communityapp.urls')),
 ]
 
-]
 
 # 3. FIXED: Added the proper indentation underneath the IF statement
 if settings.DEBUG:
