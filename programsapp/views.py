@@ -26,10 +26,10 @@ def apply(request):
         )
 
         messages.success(request, 'Your internship application has been received!')
-        return redirect('Apply')
+        return redirect('apply')
 
     # Points cleanly to your new dedicated form page layout
-    return render(request, 'Apply.html') 
+    return render(request, 'apply.html') 
 
 
 
