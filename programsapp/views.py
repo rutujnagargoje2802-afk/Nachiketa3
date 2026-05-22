@@ -4,14 +4,14 @@ from .models import InternshipApplication, YouthClubApplication, ImpactApplicati
 
 # 1. View to render the informational template page
 def programme(request):
-    return render(request, 'programme.html')
+    return render(request, 'Programme.html')
 
 # 2. Separate View to process and render the application form page
 def apply(request):
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         email = request.POST.get('email')
-        phone = request.POST.get('phone')
+        phone = request.POST.get('phone')S
         college = request.POST.get('college')
         internship_track = request.POST.get('internship_track')
         motivation = request.POST.get('motivation')
