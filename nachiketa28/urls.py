@@ -20,15 +20,17 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    # 1. Admin path moved to the top to prevent routing clashes
     path('admin/', admin.site.urls),
     
-    # 2. Your core application paths
+    # This connects perfectly to your coreapp homepage view
     path('', include('coreapp.urls')),
+    
+    # Your other existing app folders
     path('account/', include('accountapp.urls')),
     path('programme/', include('programsapp.urls')),
     path('community/', include('communityapp.urls')),
-     path('', include('myapp.urls')),
+]
+
 ]
 
 # 3. FIXED: Added the proper indentation underneath the IF statement
