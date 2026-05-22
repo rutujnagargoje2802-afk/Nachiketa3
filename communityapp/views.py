@@ -9,7 +9,7 @@ def community(request):
     context = {
         'testimonials': testimonials,
     }
-    return render(request, 'community.html', context)
+    return render(request, 'Community.html', context)
 
 
 # 2. YOUTHCLUB VIEW (Deduplicated & Merged Logic)
@@ -77,7 +77,7 @@ def submit_project_view(request):
         )
         
         messages.success(request, f"Project '{project_title}' has been submitted successfully for review!")
-        return redirect('community')
+        return redirect('Community')
         
     return render(request, 'submit_project.html')
 
