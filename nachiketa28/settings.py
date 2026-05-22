@@ -62,7 +62,8 @@ ROOT_URLCONF = 'nachiketa28.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        # CHANGE HERE: Use a capital 'Templates' to match your GitHub folder layout perfectly!
+        'DIRS': [BASE_DIR / 'Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +74,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'nachiketa28.wsgi.application'
 
