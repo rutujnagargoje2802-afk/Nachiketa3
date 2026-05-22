@@ -29,7 +29,7 @@ def gallery(request): # Rename this to match your actual gallery view name
         'community_images': community_images,
         'award_images': award_images,
     }
-    return render(request, 'Gallery.html', context) # Replace 'gallery.html' with your template name
+    return render(request, 'gallery.html', context) # Replace 'gallery.html' with your template name
 
 # Make sure it is imported from coreapp
 
