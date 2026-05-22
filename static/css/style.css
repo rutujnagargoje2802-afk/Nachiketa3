@@ -6,7 +6,9 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* NAVBAR */
+/* =========================================
+   NAVBAR BASE & DESKTOP (Straight Line)
+========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -27,6 +29,7 @@
     font-size: 20px;
     font-weight: 600;
     color: #1e3c72;
+    text-decoration: none;
 }
 
 .logo img {
@@ -41,12 +44,18 @@
 }
 
 /* NAV LINKS */
+.navbar nav {
+    display: flex;
+    align-items: center;
+}
+
 .navbar nav a {
     margin-left: 25px;
     text-decoration: none;
     color: #000000;
     font-weight: 500;
     transition: 0.3s;
+    white-space: nowrap; /* Prevents text links from breaking into two lines */
 }
 
 .navbar nav a:hover {
@@ -54,45 +63,62 @@
 }
 
 /* ==========================================
-   MOBILE RESPONSIVE NAVIGATION OVERRIDE
+   MOBILE RESPONSIVE OVERRIDE (Swipeable Row)
 ========================================== */
 @media (max-width: 768px) {
-    /* 1. Stack the logo branding and the link menu on top of each other */
+    /* Stack logo branding and link menu on top of each other */
     .navbar {
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        padding: 15px 5% !important;
+        padding: 15px 0px !important; /* Full width tracking for swipe layout */
+        gap: 10px !important;
     }
 
-    /* 2. Center the text layout and scale down the image box size slightly */
     .logo {
-        flex-direction: column !important;
-        gap: 6px !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 5px !important;
     }
 
     .logo img {
-        height: 70px !important;  /* Reduces footprint on tiny phone viewports */
-        width: 80px !important;
+        height: 60px !important;  /* Make the logo clean and compact on phones */
+        width: auto !important;
     }
 
-    /* 3. Transform links into an organized grid structure */
+    /* TURN NAV CONTEXT INTO A HORIZONTAL SCROLLABLE ROW */
     .navbar nav {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important; /* 3 balanced rows */
-        gap: 10px 5px !important;                          /* Clean gaps between links */
+        display: flex !important;
+        flex-direction: row !important;
         width: 100% !important;
+        overflow-x: auto !important;          /* Enables finger swiping */
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch;   /* Momentum scroll for iPhone/Safari */
+        padding: 5px 15px 10px 15px !important;
+        box-sizing: border-box !important;
+        
+        /* Hide default scrollbars for an app-like tab appearance */
+        scrollbar-width: none !important;     /* Firefox */
+    }
+    
+    .navbar nav::-webkit-scrollbar {
+        display: none !important;             /* Chrome, Safari, and Opera */
     }
 
-    /* Reset left margin padding and provide large tapping target spacing */
+    /* Format links to resemble distinct tap tabs */
     .navbar nav a {
         margin-left: 0 !important;
-        padding: 8px 0 !important;
+        margin-right: 15px !important;        /* Balanced separation gap */
+        padding: 6px 14px !important;
+        background: #f1f3f7 !important;       /* Subtle tab styling backgrounds */
+        border-radius: 20px !important;
         font-size: 14px !important;
-        display: block !important;
+        display: inline-block !important;
+    }
+    
+    .navbar nav a:last-child {
+        margin-right: 0 !important;           /* Edge alignment clean finish */
     }
 }
+
 
 
 /* HERO */
