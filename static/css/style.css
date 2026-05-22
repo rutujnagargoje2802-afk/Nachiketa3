@@ -7,12 +7,12 @@
 }
 
 /* =========================================
-   NAVBAR BASE & DESKTOP (Straight Line)
+   NAVBAR BASE & DESKTOP (Straight Line Layout)
 ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* vertical alignment */
+    align-items: center;
     padding: 15px 10%;
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
@@ -21,7 +21,6 @@
     z-index: 1000;
 }
 
-/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -34,7 +33,7 @@
 
 .logo img {
     height: 120px;
-    width: 130px;              /* prevent stretching */
+    width: 130px;              
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -43,7 +42,6 @@
     transform: scale(1.08);
 }
 
-/* NAV LINKS */
 .navbar nav {
     display: flex;
     align-items: center;
@@ -55,67 +53,99 @@
     color: #000000;
     font-weight: 500;
     transition: 0.3s;
-    white-space: nowrap; /* Prevents text links from breaking into two lines */
+    white-space: nowrap;
 }
 
 .navbar nav a:hover {
     color: #1e3c72;
 }
 
+/* Base style for Hamburger Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+/* Formats the three stacked bars */
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 /* ==========================================
-   MOBILE RESPONSIVE OVERRIDE (Swipeable Row)
+   INTERACTIVE HAMBURGER MOBILE OVERRIDE
 ========================================== */
 @media (max-width: 768px) {
-    /* Stack logo branding and link menu on top of each other */
+    /* Keep logo and hamburger on a single straight horizontal line */
     .navbar {
-        flex-direction: column !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        text-align: center !important;
-        padding: 15px 0px !important; /* Full width tracking for swipe layout */
-        gap: 10px !important;
-    }
-
-    .logo {
-        margin-bottom: 5px !important;
+        padding: 15px 5% !important;
     }
 
     .logo img {
-        height: 60px !important;  /* Make the logo clean and compact on phones */
+        height: 50px !important;  /* Scale down logo size on phone viewports */
         width: auto !important;
     }
 
-    /* TURN NAV CONTEXT INTO A HORIZONTAL SCROLLABLE ROW */
-    .navbar nav {
+    /* Reveal the three stacked menu bars */
+    .menu-toggle {
         display: flex !important;
-        flex-direction: row !important;
-        width: 100% !important;
-        overflow-x: auto !important;          /* Enables finger swiping */
-        scroll-behavior: smooth !important;
-        -webkit-overflow-scrolling: touch;   /* Momentum scroll for iPhone/Safari */
-        padding: 5px 15px 10px 15px !important;
-        box-sizing: border-box !important;
-        
-        /* Hide default scrollbars for an app-like tab appearance */
-        scrollbar-width: none !important;     /* Firefox */
-    }
-    
-    .navbar nav::-webkit-scrollbar {
-        display: none !important;             /* Chrome, Safari, and Opera */
     }
 
-    /* Format links to resemble distinct tap tabs */
+    /* Convert links list into a hidden vertical drop-down system */
+    .navbar nav {
+        display: none !important; 
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 100% !important; /* Positions drop-down right beneath the bar */
+        left: 0 !important;
+        width: 100% !important;
+        background: white !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+        padding: 10px 0 !important;
+        align-items: stretch !important;
+    }
+
+    /* Activated by JavaScript when user clicks the hamburger button */
+    .navbar nav.active {
+        display: flex !important;
+    }
+
+    /* Clean full-width stack blocks for comfortable clicking space */
     .navbar nav a {
         margin-left: 0 !important;
-        margin-right: 15px !important;        /* Balanced separation gap */
-        padding: 6px 14px !important;
-        background: #f1f3f7 !important;       /* Subtle tab styling backgrounds */
-        border-radius: 20px !important;
-        font-size: 14px !important;
-        display: inline-block !important;
+        padding: 14px 25px !important;
+        border-bottom: 1px solid #f5f5f5 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
-    
+
     .navbar nav a:last-child {
-        margin-right: 0 !important;           /* Edge alignment clean finish */
+        border-bottom: none !important;
+    }
+
+    /* Interactive: Animates the 3 bars into an 'X' icon when open */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
 
