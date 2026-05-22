@@ -1,0 +1,85 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachiketa Foundation</title>
+    <!-- Version query (?v=4.1) forces the phone browser to bypass cache and read new CSS changes immediately -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=4.1">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- 🍔 GLOBAL NAVBAR HEADER -->
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'image/logo.png' %}" alt="Nachiketa Foundation Logo">
+            <span>Nachiketa Foundation</span>
+        </a>
+        
+        <!-- Hamburger Menu Button Lines (Only visible on Mobile viewports) -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'programme' %}">Programs</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+            <a href="{% url 'community' %}">Community</a>
+            <a href="{% url 'youthclub' %}">Youthclub</a>
+            <a href="{% url 'about' %}">About</a>
+            
+            <!-- Dynamic Authentication System Links -->
+            {% if user.is_authenticated %}
+                <span class="user-greeting">Welcome, {{ user.first_name|default:user.username }}!</span>
+                <a href="{% url 'logout' %}" class="nav-auth-btn logout-link">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- 📥 DYNAMIC DATA CONTENT SLOT LAYER -->
+    <main>
+        {% block content %}
+        <!-- Your independent sub-pages (home.html, apply.html, etc.) automatically stream here -->
+        {% endblock content %}
+    </main>
+
+    <!-- 👣 GLOBAL FOOTER -->
+    <footer>
+        <div class="footer-box">
+            <h3>Connect With Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-images"></i> Instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Nachiketa Foundation | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- 📜 GLOBAL INTERACTIVE HAMBURGER TOGGLE SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const navContainer = document.querySelector('.navbar nav');
+
+            if (toggleBtn && navContainer) {
+                toggleBtn.addEventListener('click', function () {
+                    toggleBtn.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
