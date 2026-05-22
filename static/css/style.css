@@ -77,11 +77,16 @@
 
 /* BUTTONS */
 .btn {
+    display: inline-block; /* Allows the button to accept layout spacing and flexbox settings */
+    width: 100%;           /* Makes buttons uniform width on mobile screens */
+    max-width: 280px;      /* Prevents buttons from stretching too wide on tablet/desktop views */
+    text-align: center;    /* Keeps text perfectly centered inside the button boundary */
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     transition: 0.3s;
+    box-sizing: border-box; /* Ensures padding stays contained inside the button width limits */
 }
 
 .primary {
@@ -373,42 +378,47 @@ section {
 ========================= */
 
 .cta {
-
     background:
         linear-gradient(
             to right,
             #1e3c72,
             #2a5298
         );
-
     color: white;
-
     border-radius: 30px;
-
     margin: 80px 10%;
-
     box-shadow:
         0 15px 40px rgba(30,60,114,0.3);
 }
 
 .cta h2 {
-
     font-size: 42px;
-
     margin-bottom: 20px;
 }
 
 .cta p {
-
     font-size: 18px;
-
     opacity: 0.95;
 }
 
+/* Base mobile view style (Stacks them neatly with spacing) */
 .cta-buttons {
-
     margin-top: 35px;
+    display: flex;
+    flex-direction: column; /* Stack vertically on phones */
+    gap: 15px;             /* Clean 15px space between each button */
+    align-items: center;    /* Center the buttons on the screen */
 }
+
+/* Desktop layout style (Keeps them side-by-side on wide screens) */
+@media (min-width: 768px) {
+    .cta-buttons {
+        flex-direction: row; /* Row arrangement for desktop */
+        justify-content: center;
+        gap: 20px;           /* Slightly wider gap for desktop layout */
+    }
+}
+
 
 /* =========================
    FOOTER
