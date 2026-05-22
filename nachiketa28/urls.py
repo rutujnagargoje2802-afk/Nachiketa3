@@ -28,6 +28,7 @@ urlpatterns = [
     path('account/', include('accountapp.urls')),
     path('programme/', include('programsapp.urls')),
     path('community/', include('communityapp.urls')),
+     path('', include('myapp.urls')),
 ]
 
 # 3. FIXED: Added the proper indentation underneath the IF statement
