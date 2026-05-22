@@ -11,19 +11,19 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-     <div class="logo">
-       <!-- Change 'logo.jpeg' to your actual file name and extension -->
-<img src="{% static 'image/logo.png' %}" alt="Nachiketa Foundation Logo">
-
-        <span>Nachiketa Foundation</span>
-    </div>
-  <button class="menu-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+ <!-- 🍔 GLOBAL NAVBAR HEADER -->
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'image/logo.png' %}" alt="Nachiketa Foundation Logo">
+            <span>Nachiketa Foundation</span>
+        </a>
+        
+        <!-- Hamburger Menu Button Lines (Only visible on Mobile viewports) -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     <nav>
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'programme' %}">Programs</a>
