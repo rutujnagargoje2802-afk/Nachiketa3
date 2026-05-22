@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 # Ensure this name matches 'views.home_view' in urls.py
 def home(request):
-    return render(request,'home.html')
+    return render(request,'Home.html')
 
 
 def about(request):
