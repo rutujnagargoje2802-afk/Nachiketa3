@@ -214,6 +214,20 @@
     // Change image every 3000ms (3 seconds)
     setInterval(nextSlide, 3000);
 </script>
+      <!-- 📜 GLOBAL INTERACTIVE HAMBURGER TOGGLE SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const navContainer = document.querySelector('.navbar nav');
+
+            if (toggleBtn && navContainer) {
+                toggleBtn.addEventListener('click', function () {
+                    toggleBtn.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 
 </body> <!-- The body ends AFTER the script -->
 </html> <!-- The html ends dead last -->
