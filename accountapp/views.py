@@ -40,7 +40,7 @@ def login(request):
 # SIGNUP VIEW (Renamed to match your layout perfectly)
 def signup(request):
     if request.user.is_authenticated:
-        return redirect('Home')
+        return redirect('home')
 
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -51,15 +51,15 @@ def signup(request):
 
         if password != confirm_password:
             messages.error(request, "Passwords do not match.")
-            return render(request, 'Signup.html')
+            return render(request, 'signup.html')
 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username is already taken.")
-            return render(request, 'Signup.html')
+            return render(request, 'signup.html')
 
         if User.objects.filter(email=email).exists():
             messages.error(request, "An account with this email already exists.")
-            return render(request, 'Signup.html')
+            return render(request, 'signup.html')
 
         first_name, *last_name = full_name.split(' ', 1)
         last_name = last_name[0] if last_name else ""
@@ -77,7 +77,7 @@ def signup(request):
         messages.success(request, f"Welcome to Nachiketa Foundation, {first_name}!")
         return redirect('Home')
 
-    return render(request, 'Signup.html')
+    return render(request, 'signup.html')
 
 def logout_view(request):
     auth_logout(request)  # 1. Safely destroys the active session keys and clears cookies
