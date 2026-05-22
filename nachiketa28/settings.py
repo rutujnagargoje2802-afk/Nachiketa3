@@ -76,16 +76,33 @@ WSGI_APPLICATION = 'Nachiketa28.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nachiketa28',       # Your database name here
-        'USER': 'postgres',      # Your username (often 'postgres')
-        'PASSWORD':'1234',  # Your database user password
-        'HOST': 'localhost',                   # Leave as localhost for local machine development
-        'PORT': '5433',                        # Default PostgreSQL port number
+import os
+import dj_database_url
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Checks if the site is running live on Vercel's database environment
+if os.environ.get('POSTGRES_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('POSTGRES_URL'),
+            conn_max_age=600
+        )
     }
-}
+else:
+    # Fallback to your personal computer's local setup
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'nachiketa28',
+            'USER': 'postgres',
+            'PASSWORD': '1234',
+            'HOST': 'localhost',
+            'PORT': '5433',
+        }
+    }
+
 
 
 
