@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "Nachiketa28/wsgi.py",
+      "src": "nachiketa28/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "Nachiketa28/wsgi.py"
+      "dest": "nachiketa28/wsgi.py"
     }
   ]
 }
