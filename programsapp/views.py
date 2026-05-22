@@ -11,7 +11,7 @@ def apply(request):
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         email = request.POST.get('email')
-        phone = request.POST.get('phone')S
+        phone = request.POST.get('phone')
         college = request.POST.get('college')
         internship_track = request.POST.get('internship_track')
         motivation = request.POST.get('motivation')
@@ -30,7 +30,6 @@ def apply(request):
 
     # Points cleanly to your new dedicated form page layout
     return render(request, 'apply.html') 
-
 
 
 # 3. MOVED: Special Internship Programme database handling goes here!
@@ -61,8 +60,6 @@ def speintern(request):
 
     return render(request, 'speintern.html') # Loads your speintern form template page
 
-
-# Keep your other views (programme, apply, speintern) unchanged...
 
 def impact(request):
     if request.method == 'POST':
