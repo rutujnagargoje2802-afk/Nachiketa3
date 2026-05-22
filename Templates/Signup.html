@@ -1,0 +1,70 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Nachiketa Foundation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </nav>
+</header>
+
+<!-- SUCCESS / ERROR MESSAGES -->
+{% if messages %}
+<div class="messages-container" style="max-width: 450px; margin: 20px auto 0 auto;">
+    {% for message in messages %}
+    <div class="success-message" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 4px; text-align: center;">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- SIGNUP SECTION -->
+<section class="auth-section">
+    <div class="auth-box">
+        <h1>Create Account</h1>
+
+        <!-- FIXED: Added POST method and empty action -->
+        <form method="POST" action="">
+            {% csrf_token %} <!-- FIXED: Added mandatory security token -->
+
+            <!-- FIXED: Added a required name="username" field for account login rules -->
+            <input type="text" name="username" placeholder="Username (Unique ID)" required>
+
+            <!-- FIXED: Added name attributes to map data straight to views.py -->
+            <input type="text" name="full_name" placeholder="Full Name" required>
+
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <button type="submit" class="auth-btn">
+                Sign Up
+            </button>
+        </form>
+
+        <p class="auth-text">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a> <!-- FIXED: Replaced login.html link with active URL template tag -->
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

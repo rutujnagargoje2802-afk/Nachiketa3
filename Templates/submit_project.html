@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Project - Nachiketa Foundation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub' %}">Youthclub</a>
+    </nav>
+</header>
+
+<!-- SUCCESS / ERROR MESSAGES -->
+{% if messages %}
+<div class="messages-container" style="max-width: 600px; margin: 20px auto 0 auto;">
+    {% for message in messages %}
+    <div class="success-message" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 12px; border-radius: 4px; text-align: center; font-weight: bold;">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- FORM SECTION -->
+<section class="special-form-section">
+    <div class="special-form-container" style="max-width: 600px; margin: 50px auto;">
+        
+        <div class="special-form-header">
+            <h2>Share Your Innovation</h2>
+            <p>Describe your idea or project vision in under 500 words to receive feedback and mentor support.</p>
+        </div>
+
+        <form method="POST" action="" class="special-form">
+            {% csrf_token %}
+
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label>Project Title</label>
+                <input type="text" name="project_title" placeholder="Give your project a catchy title" required>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label>Category / Domain</label>
+                <input type="text" name="category" placeholder="e.g. Environment, Education, Technology" required>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label>Project Proposal (Max 500 words)</label>
+                <textarea name="proposal" rows="10" placeholder="Explain the problem you are solving, your solution strategy, and your expected impact..." required></textarea>
+            </div>
+
+            <button type="submit" class="special-btn" style="width: 100%;">
+                Submit Project Proposal
+            </button>
+        </form>
+
+    </div>
+</section>
+
+</body>
+</html>

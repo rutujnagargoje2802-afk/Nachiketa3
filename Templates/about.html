@@ -1,0 +1,386 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Nachiketa Foundation</title>
+    
+    <!-- Link your CSS styling sheet here -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+
+    <nav>
+       <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub'%}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+         
+         
+
+        
+    </nav>
+
+</header>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+
+    <div class="about-hero-content">
+        <h1>About Nachiketa Foundation</h1>
+
+        <p>
+            Empowering youth through leadership, service,
+            education, and community transformation.
+        </p>
+    </div>
+
+</section>
+<!-- WIDE IMAGE SECTION -->
+<section class="wide-image-section">
+    <div class="slider-container">
+    <!-- Notice the 'active' class on line 1 -->
+    <div class="slide active">
+        <img src="{% static 'image/award.jpeg' %}" alt="Youth Banner">
+    </div>
+    <div class="slide">
+        <img src="{% static 'image/youth.jpeg' %}" alt="Youth Leadership">
+    </div>
+</div>
+
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-content">
+
+    <div class="about-box">
+
+        <h2>The Story of Nachiketa</h2>
+
+        <p>
+          Centuries ago, in the wisdom of the Katha Upanishad, a young boy named Nachiketa stood at the very doors of death, seeking answers that even the wisest feared to ask. Sent by his father in a moment of anger, Nachiketa arrived at the abode of Yama, the god of death. Instead of trembling in fear, he waited patiently for three days without food or water, embodying discipline and resilience. When Yama finally appeared, Nachiketa did not ask for wealth, comfort, or power. He asked for truth—the ultimate knowledge of life, death, and what lies beyond.
+          Nachiketa’s fearless questioning revealed a spirit that refused to accept easy answers. His dialogue with Yama became a timeless lesson in courage, self control, and the pursuit of wisdom. He showed that true strength lies not in possessions but in clarity of thought and steadfastness of purpose. His story is not just philosophy—it is a call to live with integrity, to challenge ignorance, and to embrace the unknown with courage.
+          Today, Nachiketa’s example resonates more than ever. In a world filled with distractions and superficial answers, we need youth who are curious enough to question, brave enough to stand firm, and committed enough to seek deeper truths. Nachiketa represents the kind of leadership that transforms societies—rooted in discipline, guided by knowledge, and driven by fearless conviction.
+          At Nachiketa Foundation, we carry forward this legacy. Just as Nachiketa stood unshaken before death, we encourage young people to stand unshaken before challenges, to lead with purpose, and to create meaningful change. His story is not a tale of the past—it is a guiding light for the future, reminding us that courage and truth are the foundations of real progress.
+
+        </p>
+
+    </div>
+
+    <div class="about-box">
+
+        <h2>Our Inspiration</h2>
+        <h3>“Give me 100 Nachiketas and I will change the world.” — Swami Vivekananda</h3>
+        
+
+        <p>
+           “Give me 100 Nachiketas and I will change the world.” — Swami Vivekananda’s words remind us that true transformation begins with fearless youth. 
+           Nachiketa symbolizes courage, discipline, and the relentless pursuit of truth. Vivekananda believed that if even a handful of young people embodied these qualities, 
+           they could reshape society and uplift humanity.
+           At Nachiketa Foundation, this vision guides our mission: to nurture individuals who question boldly, act responsibly,and lead with integrity. 
+           Each young changemaker we empower carries forward the spirit of Nachiketa, proving that courage and conviction are the most powerful forces for lasting change.
+        </p>
+
+    </div>
+
+    <div class="about-box">
+
+        <h2>Power of Youth</h2>
+        <h3>Youth is not just about age — it is about energy, ideas, and action.</h3>
+
+        <p>
+            Youth is not just about age—it is about energy, ideas, and action. It is the spark that ignites change, the courage to question, and the determination to build something better. When guided with the right values—discipline, consistency, and responsibility—young individuals have the power to transform not only their own lives but entire communities. At Nachiketa Foundation, we believe that true empowerment goes beyond skill building. It is about shaping character, nurturing resilience, and instilling a sense of purpose. Through our programs, we provide platforms for young people to innovate, collaborate, and lead with integrity. By channelling their energy into meaningful action, we aim to create a generation of changemakers who embody courage, compassion, and responsibility, driving progress for society and the world.
+        </p>
+
+    </div>
+    
+    <div class="about-box">
+
+        <h2>Our Vision</h2>
+             <p>•	To build strong habits like discipline and financial awareness.</p>
+             <p>•	To provide real-world learning opportunities </p>
+             <p>•	To create platforms for youth innovation and leadership  </p>
+
+    </div>
+    <div class="about-box">
+
+        <h2>Our Mission</h2>
+        <p>
+             To create a generation of socially responsible youth who lead with purpose and create sustainable impact.        </p>
+
+    </div>
+
+
+<!-- LEADERSHIP TEAM -->
+<section class="team-section">
+
+    <h2>Leadership Team</h2>
+
+    <div class="team-container">
+
+        <!-- PRESIDENT -->
+        <div class="team-card">
+
+            <img src="images/president.jpg" alt="President">
+
+            <h3>President</h3>
+
+            <h4>Your Name</h4>
+
+            <p>
+                Leading the vision and strategic direction of Nachiketa Foundation
+                with a mission to empower youth and create meaningful social impact.
+            </p>
+
+        </div>
+
+        <!-- VICE PRESIDENT -->
+        <div class="team-card">
+
+            <img src="images/vice-president.jpg" alt="Vice President">
+
+            <h3>Vice President</h3>
+
+            <h4>Member Name</h4>
+
+            <p>
+                Supporting organizational development, partnerships,
+                and execution of youth-focused initiatives and programs.
+            </p>
+
+        </div>
+
+        <!-- OPERATIONS HEAD -->
+        <div class="team-card">
+
+            <img src="images/operations.jpg" alt="Operations Head">
+
+            <h3>Operations Head</h3>
+
+            <h4>Member Name</h4>
+
+            <p>
+                Managing internal operations, coordination,
+                and ensuring smooth execution of projects and activities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- OUR JOURNEY -->
+<section class="journey-section">
+
+    <div class="section-title">
+
+        <h2>Our Journey</h2>
+
+        <p>
+            From humble beginnings to a youth-driven movement,
+            our journey reflects years of dedication toward
+            social impact, leadership, and community transformation.
+        </p>
+
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="journey-roadmap">
+
+        <!-- CARD 1 -->
+        <div class="journey-card">
+
+            <div class="journey-year">
+                2011
+            </div>
+
+            <div class="journey-box">
+
+                <h3>जन हिताय जन सुखाय</h3>
+
+                <p>
+                    The beginning of our social mission with a vision
+                    to work for public welfare and community upliftment.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="journey-card">
+
+            <div class="journey-year">
+                2014
+            </div>
+
+            <div class="journey-box">
+
+                <h3>बाल विकास फाउंडेशन</h3>
+
+                <p>
+                    Focused on child development, education,
+                    and creating opportunities for young learners.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="journey-card">
+
+            <div class="journey-year">
+                2018
+            </div>
+
+            <div class="journey-box">
+
+                <h3>होप फाउंडेशन</h3>
+
+                <p>
+                    Expanded our efforts toward social empowerment,
+                    youth engagement, and community support initiatives.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="journey-card">
+
+            <div class="journey-year">
+                2021
+            </div>
+
+            <div class="journey-box">
+
+                <h3>नचिकेता फाउंडेशन</h3>
+
+                <p>
+                    A new chapter dedicated to youth leadership,
+                    innovation, internships, and nation-building initiatives.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="impact-section">
+
+    <h2>Why Our Work Matters</h2>
+
+    <div class="impact-grid">
+
+        <div class="impact-card">
+            <h3> Social Impact</h3>
+            <p>
+                Encouraging youth to solve real-world challenges
+                through action and innovation.
+            </p>
+        </div>
+
+        <div class="impact-card">
+            <h3> Leadership</h3>
+            <p>
+                Building future leaders with courage,
+                discipline, and responsibility.
+            </p>
+        </div>
+
+        <div class="impact-card">
+            <h3> Community</h3>
+            <p>
+                Creating collaborative initiatives that strengthen
+                communities and empower individuals.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<footer>
+
+    <div class="footer-box">
+
+        <h3>Connect With Us</h3>
+
+        <div class="social-links">
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Nachiketa Foundation |
+            All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+    </div>
+
+</footer>
+<script>
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        // Hide the current image
+        slides[currentSlide].classList.remove('active');
+        
+        // Move to the next image index (loop back to 0 at the end)
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Show the new image
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Change image every 3000ms (3 seconds)
+    setInterval(nextSlide, 3000);
+</script>
+
+</body> <!-- The body ends AFTER the script -->
+</html> <!-- The html ends dead last -->

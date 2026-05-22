@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachiketa Magazine</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+<img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub'%}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="magazine-hero">
+
+    <div class="magazine-hero-content">
+
+        <h1>📰 Nachiketa Magazine</h1>
+
+        <p>
+            Stories, ideas, innovation, and youth leadership —
+            all in one place.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SUBSCRIPTION SECTION -->
+<section class="subscribe-section">
+
+    <div class="subscribe-container">
+
+        <div class="subscribe-left">
+
+            <h2>Subscribe to Read</h2>
+
+            <p>
+                Access inspiring stories, student achievements,
+                social innovation projects, leadership articles,
+                and community impact initiatives.
+            </p>
+
+            <ul>
+                <li>✔ Monthly Digital Magazine</li>
+                <li>✔ Youth Stories & Interviews</li>
+                <li>✔ Leadership & Innovation Articles</li>
+                <li>✔ Exclusive Learning Resources</li>
+            </ul>
+
+        </div>
+
+        <!-- FORM -->
+        <div class="subscribe-form-box">
+
+            <h3>Get Access</h3>
+
+            <form>
+
+                <div class="subscribe-input-group">
+
+                    <label>Full Name</label>
+
+                    <input type="text"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+                <div class="subscribe-input-group">
+
+                    <label>Email Address</label>
+
+                    <input type="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+                <div class="subscribe-input-group">
+
+                    <label>Profession / Student</label>
+
+                    <input type="text"
+                        placeholder="Student, Teacher, Professional..."
+                        required>
+
+                </div>
+
+                <button type="submit" class="subscribe-btn">
+                    Subscribe & Read
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MAGAZINE CONTENT -->
+<section class="magazine-content-section">
+
+    <div class="section-title">
+
+        <h2>Featured Editions</h2>
+
+        <p>
+            Explore our latest digital magazine editions.
+        </p>
+
+    </div>
+
+    <div class="magazine-grid">
+
+        <!-- CARD 1 -->
+        <div class="magazine-read-card">
+
+            <img src="images/mag1.jpg" alt="Magazine">
+
+            <div class="magazine-read-content">
+
+                <span>April 2026 Edition</span>
+
+                <h3>Youth Leadership & Innovation</h3>
+
+                <p>
+                    Discover inspiring stories of young leaders,
+                    innovative ideas, and impactful projects.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read Magazine
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="magazine-read-card">
+
+            <img src="images/mag2.jpg" alt="Magazine">
+
+            <div class="magazine-read-content">
+
+                <span>March 2026 Edition</span>
+
+                <h3>Community Impact Stories</h3>
+
+                <p>
+                    Explore youth-driven community initiatives
+                    and social transformation journeys.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read Magazine
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="magazine-read-card">
+
+            <img src="images/mag3.jpg" alt="Magazine">
+
+            <div class="magazine-read-content">
+
+                <span>February 2026 Edition</span>
+
+                <h3>Learning & Growth</h3>
+
+                <p>
+                    Articles on skill development,
+                    financial literacy, and personal growth.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read Magazine
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-box">
+
+        <h3>Connect With Us</h3>
+
+        <div class="social-links">
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Nachiketa Foundation |
+            All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+    </div>
+
+</footer>
+</body>
+</html>

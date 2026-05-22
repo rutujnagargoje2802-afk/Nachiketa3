@@ -1,0 +1,247 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Impact Club - Nachiketa Foundation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+       <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub' %}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+    </nav>
+</header>
+
+<!-- SUCCESS / ERROR MESSAGES -->
+{% if messages %}
+<div class="messages-container">
+    {% for message in messages %}
+    <div class="success-message">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- HERO SECTION -->
+<section class="club-hero">
+    <div class="club-hero-content">
+        <h1>Youth Impact Club</h1>
+        <p>
+            Join a movement of young changemakers
+            creating impact through leadership,
+            innovation, and community action.
+        </p>
+        <div class="club-buttons">
+            <a href="#join-club" class="btn primary">Join Our Club</a>
+            <a href="#create-club" class="btn secondary-btn">Create Your Club</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT CLUB -->
+<section class="club-about-section">
+    <div class="section-title">
+        <h2>Why Youth Impact Club?</h2>
+        <p>
+            A platform designed to empower students
+            and youth leaders to collaborate,
+            innovate, and create meaningful social change.
+        </p>
+    </div>
+
+    <div class="club-grid">
+        <div class="club-card">
+            <h3>Leadership Development</h3>
+            <p>
+                Build communication, teamwork,
+                confidence, and leadership skills through
+                real-world activities and initiatives.
+            </p>
+        </div>
+
+        <div class="club-card">
+            <h3>Social Impact Projects</h3>
+            <p>
+                Work on community initiatives and
+                youth-led projects that solve local
+                and global challenges.
+            </p>
+        </div>
+
+        <div class="club-card">
+            <h3>Collaboration & Networking</h3>
+            <p>
+                Connect with students, mentors,
+                educators, and changemakers from
+                different backgrounds and communities.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN CLUB -->
+<section class="club-form-section light-bg" id="join-club">
+    <div class="club-form-container">
+        <div class="club-form-left">
+            <h2>Join Our Club</h2>
+            <p>
+                Become part of a growing network
+                of youth leaders and changemakers.
+            </p>
+            <ul>
+                <li>Leadership opportunities</li>
+                <li>Social impact activities</li>
+                <li>Workshops & mentorship</li>
+                <li>Community projects</li>
+            </ul>
+        </div>
+
+        <div class="club-form-box">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="join_club">
+                
+                <div class="club-input-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>School / College</label>
+                    <input type="text" name="college" placeholder="Enter school or college">
+                </div>
+
+                <div class="club-input-group">
+                    <label>Area of Interest</label>
+                    <select name="interest" required>
+                        <option value="">Select Interest</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="Community Service">Community Service</option>
+                        <option value="Innovation">Innovation</option>
+                        <option value="Social Entrepreneurship">Social Entrepreneurship</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="club-btn">Join Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- CREATE CLUB -->
+<section class="club-form-section" id="create-club">
+    <div class="club-form-container reverse-layout">
+        <div class="club-form-box">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="create_club">
+
+                <div class="club-input-group">
+                    <label>Your Name</label>
+                    <input type="text" name="creator_name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="creator_email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>Club Name</label>
+                    <input type="text" name="club_name" placeholder="Enter club name" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>School / College / Organization</label>
+                    <input type="text" name="organization" placeholder="Institution name" required>
+                </div>
+
+                <div class="club-input-group">
+                    <label>Why do you want to create a club?</label>
+                    <textarea rows="5" name="description" placeholder="Describe your vision and goals..." required></textarea>
+                </div>
+
+                <button type="submit" class="club-btn">Create Club</button>
+            </form>
+        </div>
+
+        <div class="club-form-left">
+            <h2>Create Your Club</h2>
+            <p>
+                Start a Youth Impact Club in your school,
+                college, or community and inspire others
+                to create positive change.
+            </p>
+            <ul>
+                <li>Build your own impact team</li>
+                <li>Lead projects and initiatives</li>
+                <li>Receive mentorship & guidance</li>
+                <li>Collaborate with other clubs</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- EXISTING CLUBS -->
+<section class="existing-clubs-section">
+    <div class="section-title">
+        <h2>Explore Existing Clubs</h2>
+        <p>
+            Join active youth clubs created by students
+            and changemakers across different communities.
+        </p>
+    </div>
+
+    <div class="existing-clubs-grid">
+        {% for club in clubs %}
+        <div class="existing-club-card">
+            <h3>{{ club.club_name }}</h3>
+            <span>{{ club.organization }}</span>
+            <p>{{ club.description }}</p>
+            <a href="{% url 'join_existing_club' club.id %}" class="join-existing-btn">Join Club</a>
+        </div>
+        {% empty %}
+        <div class="no-clubs-message">
+            <p>No clubs created yet.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-box">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Nachiketa Foundation | All Rights Reserved</p>
+    </div>
+</footer>
+
+</body>
+</html>

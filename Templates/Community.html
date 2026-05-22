@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Insights - Nachiketa Foundation</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}"><body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+       <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub'%}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+        
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="community-hero">
+
+    <div class="community-hero-content">
+
+        <h1>Ideas. Stories. Impact.</h1>
+
+        <p>
+            A platform where young minds share experiences,
+            projects, learning, and inspiration for positive change.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- BLOG SECTION -->
+<section class="community-section">
+
+    <div class="section-title">
+        <h2> Blog & Insights</h2>
+
+        <p>
+            Insights, stories, and ideas from young minds.
+        </p>
+    </div>
+
+    <div class="community-grid">
+
+        <div class="community-card">
+            <h3> Financial Literacy</h3>
+
+            <p>
+                Practical learning about saving, budgeting,
+                financial habits, and smart decision-making for students.
+            </p>
+        </div>
+
+        <div class="community-card">
+            <h3> Social Impact Stories</h3>
+
+            <p>
+                Real stories of students and communities
+                creating meaningful social transformation.
+            </p>
+        </div>
+
+        <div class="community-card">
+            <h3> Youth Development</h3>
+
+            <p>
+                Leadership, discipline, confidence,
+                communication, and growth opportunities for youth.
+            </p>
+        </div>
+
+        <div class="community-card">
+            <h3> Community Initiatives</h3>
+
+            <p>
+                Highlighting grassroots projects,
+                volunteering, and collaborative social action.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- YOUTH PROJECTS -->
+<section class="community-section light-bg">
+    <div class="section-title">
+        <h2>Youth Projects</h2>
+        <p>Have an idea? Share it with the world.</p>
+    </div>
+
+    <div class="project-box">
+        <p>Submit your project in 500 words and:</p>
+        <ul>
+            <li>Get feedback</li>
+            <li>Receive support</li>
+            <li>Inspire others</li>
+        </ul>
+        <h3>Build. Share. Grow.</h3>
+
+        <!-- FIXED: Points directly to your secure submission route -->
+        <a href="{% url 'submit_project' %}" class="btn primary">
+            Submit Your Project
+        </a>
+    </div>
+</section>
+
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="community-section">
+
+    <div class="section-title">
+        <h2>Testimonials</h2>
+    </div>
+
+    <div class="testimonial-grid">
+        <!-- Loop over your database testimonials dynamically -->
+        {% for testimonial in testimonials %}
+        <div class="testimonial-card">
+            
+            {% if testimonial.image %}
+                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.author_name }}">
+            {% else %}
+                <!-- Falls back to a standard placeholder if no photo is uploaded -->
+                <img src="/static/images/default-avatar.jpg" alt="Default Avatar">
+            {% endif %}
+            
+            <p>“{{ testimonial.quote }}”</p>
+            <h4>— {{ testimonial.author_name }}</h4>
+
+        </div>
+        {% empty %}
+        <p style="text-align: center; width: 100%;">No testimonials added yet.</p>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+<!-- MAGAZINE -->
+<section class="community-section light-bg">
+
+    <div class="section-title">
+
+        <h2> Monthly Magazine</h2>
+
+        <p>
+            Explore stories, projects, and learning resources
+            shared by students and young changemakers.
+        </p>
+
+    </div>
+
+    <div class="magazine-grid">
+
+        <div class="magazine-card">
+
+            <img src="images/magazine1.jpg" alt="Magazine">
+
+            <div class="magazine-content">
+
+                <h3>Student Stories</h3>
+
+                <p>
+                    Experiences, challenges, and journeys
+                    shared by young leaders.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="magazine-card">
+
+            <img src="images/magazine2.jpg" alt="Magazine">
+
+            <div class="magazine-content">
+
+                <h3>Project Highlights</h3>
+
+                <p>
+                    Showcasing impactful youth-led
+                    community and innovation projects.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="magazine-card">
+
+            <img src="C:\Users\Rushi\Downloads\Hope\Screenshot 2026-05-07 232802.png" alt="Magazine">
+
+            <div class="magazine-content">
+
+                <h3>Learning Resources</h3>
+
+                <p>
+                    Articles, tools, and resources
+                    for youth development and leadership.
+                </p>
+                <a href="{% url 'magzine'%}" class="btn primary">
+                    <h4>subscribe</h4>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-box">
+
+        <h3>Connect With Us</h3>
+
+        <div class="social-links">
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Nachiketa Foundation |
+            All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+    </div>
+
+</footer>
+
+</body>
+</html>

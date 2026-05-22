@@ -1,0 +1,212 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nachiketa Foundation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+     <div class="logo">
+        <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub' %}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+        
+ 
+             <!-- DYNAMIC AUTH SECTION -->
+    {% if user.is_authenticated %}
+        <span class="user-greeting">
+            Welcome, {{ user.first_name|default:user.username }}!
+        </span>
+        <a href="{% url 'logout' %}" class="nav-auth-btn logout-link">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+
+    </nav>
+</header>
+
+
+<section class="wide-image-section">
+    <div class="slider-container">
+    <!-- Notice the 'active' class on line 1 -->
+    <div class="slide active">
+        <img src="{% static 'image/award.jpeg' %}" alt="Youth Banner">
+    </div>
+    <div class="slide">
+        <img src="{% static 'image/youth.jpeg' %}" alt="Youth Leadership">
+    </div>
+</div>
+
+</section>
+
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Building Youth Who Can Change the World</h1>
+        <p>Empowering young minds through service, leadership, and real-world impact.</p>
+
+        <div class="hero-buttons">
+            <a href="Apply.html" class="btn primary">Join Internship</a>
+            <a href="speintern.html" class="btn secondary">Apply for Programs</a>
+            <a href="impact.html" class="btn outline">Submit Project</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+
+    <h2>About Nachiketa Foundation</h2>
+
+    <p>
+        At Nachiketa Foundation, we believe that real change begins with the youth. Inspired by the fearless spirit of Nachiketa, we strive to nurture a generation that questions, learns, and leads with purpose.
+        Our mission is to empower young minds through education, innovation, and community engagement, fostering values of courage, discipline, and social responsibility.
+        By creating opportunities for experiential learning and service, we encourage youth to challenge norms, embrace leadership, and drive meaningful impact.
+        We envision a world where young changemakers rise with integrity and compassion, shaping a brighter, more inclusive future for society.
+    </p>
+
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+    <h2>Our Key Programs</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Youth Internships </h3>
+            <p>We provide meaningful internship opportunities that help young individuals gain real-world experience in leadership, social impact, teamwork, and community engagement while contributing to meaningful causes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Social Innovation Programs </h3>
+            <p>Our programs encourage students and young changemakers to identify social problems, develop creative solutions, and build innovative projects that create positive change in society.</p>
+        </div>
+
+        <div class="card">
+            <h3>Student Awards </h3>
+            <p>We recognize and celebrate exceptional students who demonstrate leadership, courage, service, and commitment toward social development through impactful community initiatives.</p>
+        </div>
+        <div class="card">
+            <h3>Community Projects</h3>
+            <p>We organize and support grassroots community projects focused on education, environment, health awareness, financial literacy, and youth empowerment to create sustainable social impact.</p>
+        </div>
+    </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+    <h2>Our Impact</h2>
+
+    <div class="stats">
+        <div class="stat">
+            <h3>500+</h3>
+            <p>Students Reached</p>
+        </div>
+
+        <div class="stat">
+            <h3>25+</h3>
+            <p>Programs Conducted</p>
+        </div>
+
+        <div class="stat">
+            <h3>10+</h3>
+            <p>Partner Schools</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Be a Part of the Change</h2>
+    <p>Join us in building a better future through youth empowerment.</p>
+
+    <div class="cta-buttons">
+        <a href="Apply.html" class="btn primary">Join Internship</a>
+        <a href="#" class="btn secondary">Apply Now</a>
+    </div>
+</section>
+
+<footer>
+
+    <div class="footer-box">
+
+        <h3>Connect With Us</h3>
+
+        <div class="social-links">
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Nachiketa Foundation |
+            All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+    </div>
+
+</footer>
+
+<script>
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        // Hide the current image
+        slides[currentSlide].classList.remove('active');
+        
+        // Move to the next image index (loop back to 0 at the end)
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Show the new image
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Change image every 3000ms (3 seconds)
+    setInterval(nextSlide, 3000);
+</script>
+
+</body> <!-- The body ends AFTER the script -->
+</html> <!-- The html ends dead last -->

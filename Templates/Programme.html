@@ -1,0 +1,245 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Nachiketa Foundation</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+      <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
+        <span>Nachiketa Foundation</span>
+    </div>
+
+    <nav>
+         <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'programme' %}">Programs</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'community' %}">Community</a>
+        <a href="{% url 'youthclub'%}">Youthclub</a>
+        <a href="{% url 'about' %}">About</a>
+    </nav>
+
+</header>
+
+<!-- HERO SECTION -->
+<section class="program-hero">
+
+    <div class="program-hero-content">
+        <h1>Our Programs</h1>
+
+        <p>
+            Empowering youth through leadership, innovation,
+            internships, and social impact initiatives.
+        </p>
+    </div>
+
+</section>
+
+<!-- INTERNSHIP PROGRAM -->
+<section class="program-section">
+
+    <div class="program-box">
+
+        <h2> Internship Program</h2>
+
+        <p>
+            Gain real-world experience while working on meaningful
+            projects that create social impact and develop leadership skills.
+        </p>
+
+        <h3>Available Tracks</h3>
+
+        <ul>
+            <p>Social Entrepreneurship</p>
+            <p>Office Operations</p>
+            <p>Hybrid Work Opportunities</p>
+        </ul>
+
+        <p class="tagline">
+             Learn. Contribute. Grow.
+        </p>
+
+        <a href="{% url 'apply' %}" class="btn primary">
+            Apply Now
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SPECIAL INTERNSHIP -->
+<section class="program-section light-bg">
+
+    <div class="program-box">
+
+        <h2> Special Internship Programme</h2>
+
+        <p>
+            An advanced program designed for highly motivated individuals
+            seeking deeper exposure to leadership, strategy,
+            innovation, and impact-building.
+        </p>
+ <a href="{% url 'speintern' %}" class="btn primary">
+            Apply Now
+        </a>
+    </div>
+
+</section>
+
+<!-- IMPACT INCUBATION -->
+<section class="program-section">
+
+    <div class="program-box">
+
+        <h2> Impact Incubation Center</h2>
+
+        <h3>“Turn your idea into impact.”</h3>
+
+        <p>
+            We help students and young innovators design and execute
+            projects that solve real-world social problems.
+        </p>
+
+        <h3>Includes</h3>
+
+        <ul>
+           <p>Social Innovation Fellowship</p>
+           <p>100 Youth Changemakers Initiative</p>
+        </ul>
+ <a href="{% url 'impact' %}" class="btn primary">
+            Apply Now
+        </a>
+    </div>
+
+</section>
+
+<!-- STUDENT AWARD -->
+<section class="program-section light-bg">
+
+    <div class="program-box">
+
+        <h2> Student Award Program</h2>
+
+        <p>
+            Recognizing young individuals who are already creating
+            meaningful impact in society.
+        </p>
+        
+
+        <!-- STAGES -->
+        <div class="stages">
+
+            <div class="stage-card">
+                <h3>Stage 1: Submission</h3>
+                <p>
+                    Submit your work and share your journey,
+                    achievements, and community impact.
+                </p>
+                <a href="awardapply.html" class="stage-btn">
+    Submit Work
+</a>
+            </div>
+
+            <div class="stage-card">
+                <h3>Stage 2: Evaluation</h3>
+
+                <p> 
+                    Recorded video responses
+                    Document submission (proof of work)
+                </p>
+                    <a href="awardapply.html" class="stage-btn">
+    Submit Work
+</a>
+                
+            </div>
+
+            <div class="stage-card">
+                <h3>Stage 3: Public Voting</h3>
+
+                <p>
+                    Selected participants are showcased on our platform
+                    where people can support and vote for their work.
+                </p>
+                
+                <a href="awardapply.html" class="stage-btn">
+    Submit Work
+</a>
+                    
+            </div>
+
+
+            <div class="stage-card">
+                <h3>Stage 4: Final Round</h3>
+                <p> Panel interview</p>
+                <p> Work presentation</p>
+                <p>Final public voting</p>
+                
+                <a href="awardapply.html" class="stage-btn">
+    Submit Work
+</a>
+            </div>
+
+            
+            
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-box">
+
+        <h3>Connect With Us</h3>
+
+        <div class="social-links">
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+
+            <a href="#">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Nachiketa Foundation |
+            All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+    </div>
+
+</footer>
+
+</body>
+</html>
