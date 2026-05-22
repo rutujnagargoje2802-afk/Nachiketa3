@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Nachiketa28.urls'
+ROOT_URLCONF = 'nachiketa28.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Nachiketa28.wsgi.application'
+WSGI_APPLICATION = 'nachiketa28.wsgi.application'
 
 
 # Database
