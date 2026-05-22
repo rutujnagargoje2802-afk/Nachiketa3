@@ -53,6 +53,47 @@
     color: #1e3c72;
 }
 
+/* ==========================================
+   MOBILE RESPONSIVE NAVIGATION OVERRIDE
+========================================== */
+@media (max-width: 768px) {
+    /* 1. Stack the logo branding and the link menu on top of each other */
+    .navbar {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 15px 5% !important;
+    }
+
+    /* 2. Center the text layout and scale down the image box size slightly */
+    .logo {
+        flex-direction: column !important;
+        gap: 6px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .logo img {
+        height: 70px !important;  /* Reduces footprint on tiny phone viewports */
+        width: 80px !important;
+    }
+
+    /* 3. Transform links into an organized grid structure */
+    .navbar nav {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 balanced rows */
+        gap: 10px 5px !important;                          /* Clean gaps between links */
+        width: 100% !important;
+    }
+
+    /* Reset left margin padding and provide large tapping target spacing */
+    .navbar nav a {
+        margin-left: 0 !important;
+        padding: 8px 0 !important;
+        font-size: 14px !important;
+        display: block !important;
+    }
+}
+
 /* HERO */
 .hero {
     height: 90vh;
