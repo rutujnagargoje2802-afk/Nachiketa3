@@ -9,13 +9,21 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-    <div class="logo">
-        <img src="{% static 'image/logo.jpeg' %}" alt="Nachiketa Foundation Logo"> 
-        <span>Nachiketa Foundation</span>
-    </div>
-    <nav>
+<!-- 🍔 GLOBAL NAVBAR HEADER -->
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'image/logo.png' %}" alt="Nachiketa Foundation Logo">
+            <span>Nachiketa Foundation</span>
+        </a>
+        
+        <!-- Hamburger Menu Button Lines (Only visible on Mobile viewports) -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
         <a href="{% url 'home' %}">Home</a>
         
         <!-- DYNAMIC AUTH SECTION -->
@@ -64,6 +72,19 @@
         </p>
     </div>
 </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const navContainer = document.querySelector('.navbar nav');
+
+            if (toggleBtn && navContainer) {
+                toggleBtn.addEventListener('click', function () {
+                    toggleBtn.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
