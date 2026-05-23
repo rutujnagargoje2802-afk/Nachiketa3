@@ -69,9 +69,9 @@
         <p>Empowering young minds through service, leadership, and real-world impact.</p>
 
         <div class="hero-buttons">
-            <a href="Apply.html" class="btn primary">Join Internship</a>
-            <a href="speintern.html" class="btn secondary">Apply for Programs</a>
-            <a href="impact.html" class="btn outline">Submit Project</a>
+            <a href="{% url 'Apply' %}" class="btn primary">Join Internship</a>
+            <a href="{% url 'speintern'%}" class="btn secondary">Apply for Programs</a>
+            <a href= "{% url 'impact'%}"class="btn outline">Submit Project</a>
         </div>
     </div>
 </section>
@@ -144,8 +144,8 @@
     <p>Join us in building a better future through youth empowerment.</p>
 
     <div class="cta-buttons">
-        <a href="Apply.html" class="btn primary">Join Internship</a>
-        <a href="#" class="btn secondary">Apply Now</a>
+        <a href="{% url 'Apply' %}"class="btn primary">Join Internship</a>
+        <a href="{% url 'speintern'%}"  class="btn secondary">Apply Now</a>
     </div>
 </section>
 
